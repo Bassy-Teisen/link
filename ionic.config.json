@@ -1,0 +1,7 @@
+{
+  "name": "link",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
