@@ -13,6 +13,7 @@ import { AdvertisingComponent } from './components/advertising/advertising.compo
 import { ModalComponent } from './components/start-post/modal/modal.component';
 import { AllPostsComponent } from './components/all-posts/all-posts.component';
 import { PostService } from './services/post.service';
+import { TabsComponent } from './components/tabs/tabs.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, HomePageRoutingModule],
@@ -25,6 +26,7 @@ import { PostService } from './services/post.service';
     AdvertisingComponent,
     ModalComponent,
     AllPostsComponent,
+    TabsComponent,
   ],
 })
 export class HomePageModule {}
