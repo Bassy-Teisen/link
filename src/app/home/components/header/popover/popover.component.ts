@@ -1,7 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { PopoverController } from '@ionic/angular';
-import { BehaviorSubject, Subscription } from 'rxjs';
-import { take } from 'rxjs/operators';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   selector: 'app-popover',
@@ -9,11 +7,11 @@ import { take } from 'rxjs/operators';
   styleUrls: ['./popover.component.scss'],
 })
 export class PopoverComponent implements OnInit {
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {}
 
   onSignOut() {
-    console.log(1, 'onSignOut() called!');
+    this.authService.logout();
   }
 }

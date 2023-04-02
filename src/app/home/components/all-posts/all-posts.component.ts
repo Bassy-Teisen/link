@@ -37,8 +37,6 @@ export class AllPostsComponent implements OnInit {
         }
         if (isInitialLoad) event.target.complete();
         this.skipPosts = this.skipPosts + 5;
-        console.log('skip', this.skipPosts)
-        console.log('isInitialLoad', isInitialLoad)
       },
       (error) => {
         console.log(error);
