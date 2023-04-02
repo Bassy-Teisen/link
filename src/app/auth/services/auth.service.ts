@@ -40,6 +40,14 @@ export class AuthService {
     );
   }
 
+  get userId(): Observable<Role | any> {
+    return this.user$.asObservable().pipe(
+      switchMap((user: User) => {
+        return of(user.id);
+      }),
+    );
+  }
+
   constructor(private http: HttpClient, private router: Router) {}
 
   register(newUser: NewUser): Observable<User> {
@@ -67,6 +75,7 @@ export class AuthService {
             value: response.token,
           });
           const decodedToken: UserResponse = jwt_decode(response.token);
+
           this.user$.next(decodedToken.user);
         }),
       );
@@ -81,7 +90,6 @@ export class AuthService {
     ).pipe(
       map((data: { value: string | null }) => {
         if (!data || !data.value) return false;
-  
         const decodedToken: UserResponse = jwt_decode(data.value);
         const jwtExpirationInMsSinceUnixEpoch = decodedToken.exp * 1000;
         const isExpired = new Date() > new Date(jwtExpirationInMsSinceUnixEpoch);
